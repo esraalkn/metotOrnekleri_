@@ -16,41 +16,49 @@ namespace MetotOrnekleri3
              * gıda: %8, eğitim:%5,diğerleri:%8
              * parametreler: fiyat,kategori
              */
-           float s = parametreler("e", 100);
-            Console.WriteLine("KDV eklenmiş fiyat : " + s);
+            Console.WriteLine("ürün no gir");
+            Console.WriteLine("1-gıda");
+            Console.WriteLine("2-eğitim");
+            Console.WriteLine("3-diğer");
+            string urunAD = Console.ReadLine();
+            Console.WriteLine("Ürün fiyat gir");
+            double urunFiyat = Convert.ToInt32(Console.ReadLine());
+            double sonFiyat = parametreler(urunAD, urunFiyat);
+            Console.WriteLine("kdvli fiyat: "+sonFiyat);
             Console.ReadLine();
         }
 
-        static float parametreler(string kategori,int fiyat )
+        static double parametreler(string kategori,double fiyat )
         {
 
             
-            float kdvh = 0;
+            double kdvh = 0;
             if (kategori=="g")
             {
                 
               
                 
                 kdvh = fiyat + (fiyat * 8 / 100);
-                Console.WriteLine("");
+             
 
-                return kdvh;
+                
 
             }
             else if (kategori=="e")
             {
                 kdvh = fiyat + (fiyat * 5 / 100);
-                Console.WriteLine("");
+                
 
-                return kdvh;
+               
             }
             else
             {
                 kdvh = fiyat + (fiyat * 18 / 100);
-                Console.WriteLine("");
+                
 
-                return kdvh;
+                
             }
+            return kdvh;
         }
     }
 }
